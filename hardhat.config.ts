@@ -25,7 +25,7 @@ const hyperlaneCoreAddresses = HyperlaneCoreAddresses;
 //   passphrase: "",
 // }
 // ... or a direct private key
-const accounts = [""];
+const accounts = ["a3e5be5e04eed844b9e7723cfb69839a981dddee90cea99137d86519153a96f4"];
 
 const config: HardhatUserConfig = {
   solidity: "0.8.17",

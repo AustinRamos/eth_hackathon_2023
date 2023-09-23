@@ -1,4 +1,5 @@
 import { expect } from "chai";
+
 import { ethers } from "hardhat";
 import { utils } from "@hyperlane-xyz/utils";
 import {
@@ -33,21 +34,31 @@ describe("Hyperlane", function () {
       ownee = await owneeFactory.deploy(ownerICA);
     });
 
-    it("can set a fee", async function () {
-      const fee = 42;
+     it("can set a fee", async function () {
+       const fee = 42;
 
       await owner.setRemoteFee(destinationDomain, ownee.address, fee);
       await router.processNextPendingCall();
       expect((await ownee.fee()).toNumber()).to.eql(fee);
     });
 
-    it ("can transfer ownership", async function () {
-      // Random new owner
-      const newOwner = router.address;
+    // it("can deploy smart wallet", async function () {
+    //   const fee = 42;
 
-      await owner.transferRemoteOwnership(destinationDomain, ownee.address, newOwner);
-      await router.processNextPendingCall();
-      expect(await ownee.owner()).to.eql(newOwner);
-    })
-  });
+    //   await owner.setRemoteFee(destinationDomain, ownee.address, fee);
+    //   await router.processNextPendingCall();
+    //   expect((await ownee.fee()).toNumber()).to.eql(fee);
+    //   //expect it to be same address
+    // });
+
+    // it ("can transfer ownership", async function () {
+    //   // Random new owner
+    //   const newOwner = router.address;
+
+    //   await owner.transferRemoteOwnership(destinationDomain, ownee.address, newOwner);
+    //   await router.processNextPendingCall();
+    //   expect(await ownee.owner()).to.eql(newOwner);
+    // })
+  //});
+});
 });

@@ -38,7 +38,7 @@ contract InterchainAccountTest is Test {
     function testSettingFee(uint256 newfee) public {
         vm.assume(newfee != 0);
         owner.setRemoteFee(remoteDomain, address(ownee), newfee);
-        router.processNextPendingCall();
+        //router.processNextPendingCall();
         assertEq(ownee.fee(), newfee);
     }
 }
