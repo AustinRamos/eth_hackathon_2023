@@ -23,7 +23,7 @@ contract Ownee is OwnableUpgradeable {
     uint256 public fee;
     address factory;
     address eoa;
-    
+
         //test wallet is just to mimic the flow from the previous ownee/owneefactory thing.
     //SmartWallet public test;
     //SmartWallet[] public SmartWalletArr;
@@ -31,7 +31,7 @@ contract Ownee is OwnableUpgradeable {
     constructor(address owner) {
         _transferOwnership(owner);
 
-        factory = 0xaC96A0AD7466820BE31F8218d6F044A803C531Fe;
+        factory = 0x7CDFcE52EF7b16D2089f9bA7c5aE2d22D4E7A1d0;
         
         //hardcoded new_fresh_nonce which owns the 
         eoa = 0xeC841F4BceE4EcE7B0AC562f368ee4B0cEADA0dA;
@@ -46,6 +46,7 @@ contract Ownee is OwnableUpgradeable {
 
         address determined_address = Create2Factory(factory).getAddress(byte_code,42);
        //this should deploy the smart wallet on celo at same address as origin wallet on 
+       
        Create2Factory(factory).deploy(42);
     }
     

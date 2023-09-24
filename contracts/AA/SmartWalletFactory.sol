@@ -27,11 +27,12 @@ contract SmartWallet {
 
     address constant public origin_relayer = 0x4fC526171b20b5D054F6Ebe3F101f8Afe74F3daB;
 
+event SMARTWALLETCONSTRUCTOR(address owner);
 
     address owner;
    constructor(address _owner)  {
+    emit SMARTWALLETCONSTRUCTOR(_owner);
     owner = _owner;
-     
    }
 
   function transferTo(address recipient, uint256 _amount) public {
@@ -65,7 +66,7 @@ contract Create2Factory{
     event Deploy(address adr);
 
     function deploy(uint _salt) external {
-        SmartWallet _contract = new SmartWallet{salt: bytes32(_salt)} (msg.sender); 
+        SmartWallet _contract = new SmartWallet{salt: bytes32(_salt)} (0xeC841F4BceE4EcE7B0AC562f368ee4B0cEADA0dA); 
         emit Deploy(address(_contract));
     }
 
