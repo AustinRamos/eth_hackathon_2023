@@ -42,6 +42,7 @@ $ yarn hardhat deploy-message-receiver --network goerli --origin mumbai
 # Send a message via the sender contract to the receiver contract
 $ yarn hardhat send-message-via-HyperlaneMessageSender --sender "SENDER_ADDRESS" --receiver "RECEIVER_ADDRESS" --remote goerli --network mumbai --message "Your message"
 ```
+# add igp.payforgass call in script
 
 ### Accounts API
 
@@ -68,7 +69,7 @@ contract Ownee is OwnableUpgradeable {
 We can have it be owned by a simple `Owner` contract that lives on a remote chain. First, let's deploy it:
 
 ```shell
-$ yarn hardhat deploy-owner --network goerli
+$ yarn hardhat deploy-owner --network arbitrumgoerli
 ```
 
 Let's get the ICA account address for this contract:

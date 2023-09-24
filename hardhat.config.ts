@@ -440,14 +440,16 @@ task(
     const factory = await hre.ethers.getContractFactory("Owner");
     const owner = await factory.attach(taskArgs.owner);
     const destinationDomain = multiProvider.getDomainId(taskArgs.remote);
-    console.log("malik")
+  
     console.log(destinationDomain)
     console.log(taskArgs.ownee)
     console.log(taskArgs.newfee)
+
     const tx = await owner.setRemoteFee(
       destinationDomain,
       taskArgs.ownee,
-      taskArgs.newfee
+      taskArgs.newfee,
+      
     );
     const res = await tx.wait();
     console.log(
